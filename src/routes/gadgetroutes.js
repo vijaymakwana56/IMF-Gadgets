@@ -1,5 +1,5 @@
 import express from "express";
-import { getGadgets, createGadget, updateGadget, decommissionGadget, selfDestructGadget } from "../controllers/gadgetController.js";
+import { getGadgets, createGadget, updateGadget, decommissionGadget, selfDestructGadget } from "../controllers/gadgetcontroller.js";
 import { login } from "../controllers/authcontroller.js";
 import {authenticateToken} from "../middlewares/auth.js"
 
