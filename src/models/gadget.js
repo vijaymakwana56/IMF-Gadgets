@@ -21,7 +21,7 @@ const Gadget = sequelize.define("Gadget", {
   },
 });
 
-await Gadget.sync({ force: true });
+await Gadget.sync({ force: false });
 console.log('The table for the User model was just (re)created!');
 
 export default Gadget;
