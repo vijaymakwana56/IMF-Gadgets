@@ -5,6 +5,12 @@ dotenv.config();
 const sequelize = new Sequelize(process.env.DATABASE, process.env.USER_NAME,process.env.PASSWAORD, {
     host: "localhost",
     dialect: "postgres",
+    dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
+      },
     logging: false,
 });
 
