@@ -1,8 +1,11 @@
+import { where } from "sequelize";
 import Gadget from "../models/gadget.js";
 import { v4 as uuidv4 } from "uuid";
 
 export const getGadgets = async (req, res) => {
-  const gadgets = await Gadget.findAll();
+  const {status} = req.query;
+  const query = status ? {where: {status}} : {};
+  const gadgets = await Gadget.findAll(query);
   const gadgetsWithProbability = gadgets.map((gadget) => ({
     ...gadget.toJSON(),
     successProbability: `${Math.floor(Math.random() * 101)}%`,
