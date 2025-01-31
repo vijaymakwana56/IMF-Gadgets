@@ -1,7 +1,13 @@
 import express from "express";
 import sequelize from "./config/db.js";
+import router from "./routes/gadgetroutes.js";
+
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 app.use(express.json());
+app.use("/api", router);
+
 
 try {
     await sequelize.authenticate();
@@ -10,4 +16,4 @@ try {
     console.error('Unable to connect to the database:', error);
 }
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.listen(process.env.PORT, () => console.log("Server running!"));
